@@ -7,23 +7,39 @@
     "lint": "npx eslint src/**/*.ts",
     "build": "tsc",
     "dev": "ts-node-dev src/app.ts",
-    "start": "ts-node src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev src/app.ts"
   },
-  "author": "< Укажите здесь автора работы >",
+  "author": " < Укажите здесь автора работы >",
   "license": "ISC",
   "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/node": "^18.6.3",
+    "@types/express": "^4.17.15",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "mongoose": "^6.8.2",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.4"
   },
   "dependencies": {
-    "express": "^4.18.1",
-    "mongoose": "^6.5.0"
-  }
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^4.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berezhinskiyo/mesto-project-plus-my.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/berezhinskiyo/mesto-project-plus-my/issues"
+  },
+  "homepage": "https://github.com/berezhinskiyo/mesto-project-plus-my#readme"
 }
