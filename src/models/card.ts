@@ -30,8 +30,7 @@ const cardSchema = new mongoose.Schema<ICard>({
   },
   createdAt: {
     type: Schema.Types.Date,
-    required: true,
     default: Date.now,
   },
 });
-export default mongoose.model('card', cardSchema);
+export default mongoose.model<ICard>('card', cardSchema);
