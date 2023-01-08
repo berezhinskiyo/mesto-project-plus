@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongodb';
 import User from '../models/user';
-import { ERROR_CODE_NOT_FOUND, ERROR_CODE_VALIDATION, ERROR_CODE_OTHER } from '../const'
+import { ERROR_CODE_NOT_FOUND, ERROR_CODE_VALIDATION, ERROR_CODE_OTHER } from '../const';
 
 export const getUsers = (req: Request, res: Response) => User.find({})
   .then((users) => res.send({ data: users }))
@@ -10,13 +10,12 @@ export const getUsers = (req: Request, res: Response) => User.find({})
 export const getUser = (req: Request, res: Response) => {
   const { userId } = req.params;
 
-  if (!ObjectId.isValid(userId))
-    return res.status(ERROR_CODE_VALIDATION).send({ message: 'Передан некорректный идентификатор пользователя' });
+  if (!ObjectId.isValid(userId)) return res.status(ERROR_CODE_VALIDATION).send({ message: 'Передан некорректный идентификатор пользователя' });
 
   return User.find({ _id: userId })
     .then((user) => {
       if (user.length === 0) return res.status(ERROR_CODE_NOT_FOUND).send({ message: 'Пользователь по указанному _id не найден' });
-      res.send({ data: user });
+      return res.send({ data: user });
     })
     .catch(() => res.status(ERROR_CODE_OTHER).send({ message: 'Произошла ошибка' }));
 };
