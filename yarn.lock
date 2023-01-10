@@ -916,6 +916,13 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/joi@^17.2.3":
+  "integrity" "sha512-dGjs/lhrWOa+eO0HwgxCSnDm5eMGCsXuvLglMghJq32F6q5LyyNuXb41DHzrg501CKNOSSAHmfB7FDGeUnDmzw=="
+  "resolved" "https://registry.npmjs.org/@types/joi/-/joi-17.2.3.tgz"
+  "version" "17.2.3"
+  dependencies:
+    "joi" "*"
+
 "@types/json-schema@^7.0.9":
   "integrity" "sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
@@ -1758,6 +1765,11 @@
   "resolved" "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz"
   "version" "1.8.1"
 
+"express-rate-limit@^6.7.0":
+  "integrity" "sha512-vhwIdRoqcYB/72TK3tRZI+0ttS8Ytrk24GfmsxDXK9o9IhHNO5bXRiXQSExPQ4GbaE5tvIS7j1SGrxsuWs+sGA=="
+  "resolved" "https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-6.7.0.tgz"
+  "version" "6.7.0"
+
 "express-winston@^4.2.0":
   "integrity" "sha512-EMD74g63nVHi7pFleQw7KHCxiA1pjF5uCwbCfzGqmFxs9KvlDPIVS3cMGpULm6MshExMT9TjC3SqmRGB9kb7yw=="
   "resolved" "https://registry.npmjs.org/express-winston/-/express-winston-4.2.0.tgz"
@@ -1766,7 +1778,7 @@
     "chalk" "^2.4.2"
     "lodash" "^4.17.21"
 
-"express@^4.18.2":
+"express@^4 || ^5", "express@^4.18.2":
   "integrity" "sha512-5/PsL6iGPdfQ/lKM1UuielYgv3BUoJfz1aUwU9vHZ+J7gyvwdQXFEBIEIaxeGf0GIcreATNyBExtalisDbuMqQ=="
   "resolved" "https://registry.npmjs.org/express/-/express-4.18.2.tgz"
   "version" "4.18.2"
@@ -2262,7 +2274,7 @@
   "resolved" "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
   "version" "2.0.0"
 
-"joi@17.x.x":
+"joi@*", "joi@17.x.x":
   "integrity" "sha512-1/ugc8djfn93rTE3WRKdCzGGt/EtiYKxITMO4Wiv6q5JL1gl9ePt4kBsl1S499nbosspfctIQTpYIhSmHA3WAg=="
   "resolved" "https://registry.npmjs.org/joi/-/joi-17.7.0.tgz"
   "version" "17.7.0"

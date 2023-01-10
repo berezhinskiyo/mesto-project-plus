@@ -2,7 +2,9 @@ import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { ObjectId } from 'mongodb';
 
-const WrongPasswordError = require('../errors/wrong-password-err');
+import WrongPasswordError from '../errors/wrong-password-err';
+
+export const { JWT_SECRET = 'dev-key' } = process.env;
 
 export default (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
@@ -16,7 +18,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, 'some-secret-key');
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     next(new WrongPasswordError('Необходима авторизация'));
   }

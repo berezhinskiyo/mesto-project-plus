@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import isURL from 'validator/lib/isURL';
 import {
   getUsers, getMe, getUser, patchMe, patchMeAvatar,
 } from '../controllers/users';
@@ -9,7 +10,7 @@ const router = Router();
 router.get('/', getUsers);
 router.get('/:userId', celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().alphanum().length(24),
+    userId: Joi.string().length(24).hex(),
   }),
 }), getUser);
 router.patch('/me', celebrate({
@@ -21,7 +22,10 @@ router.patch('/me', celebrate({
 router.get('/me', getMe);
 router.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required(),
+    avatar: Joi.string().required().custom((value: string) => {
+      if (isURL(value, { protocols: ['http', 'https', 'ftp'], require_tld: true, require_protocol: true })) return value;
+      throw new Error('Wrong link url format');
+    }),
   }),
 }), patchMeAvatar);
 export default router;

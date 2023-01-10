@@ -3,11 +3,13 @@ import { Request, Response, NextFunction } from 'express';
 import { ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
 import User from '../models/user';
+import { JWT_SECRET } from '../middlewares/auth';
+
+import ValidationError from '../errors/validation-err';
+import WrongPasswordError from '../errors/wrong-password-err';
+import NotFoundError from '../errors/not-found-err';
 
 const bcrypt = require('bcryptjs');
-const NotFoundError = require('../errors/not-found-err');
-const ValidationError = require('../errors/validation-err');
-const WrongPasswordError = require('../errors/wrong-password-err');
 
 export const getUsers = (req: Request, res: Response, next: NextFunction) => User.find({})
   .then((users) => res.send({ data: users }))
@@ -79,7 +81,7 @@ export const login = (req: Request, res: Response, next: NextFunction) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        'some-secret-key',
+        JWT_SECRET,
         { expiresIn: '7d' },
       );
       res.send({ token });
