@@ -32,8 +32,7 @@ const userSchema = new mongoose.Schema<IUser, UserModel>({
     maxlength: 200,
     default: 'Исследователь',
   },
-  avatar: {
-    type: String,
+  avatar: {type: String,
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
     validate: {
       validator(s: string) {

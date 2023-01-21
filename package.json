@@ -8,7 +8,9 @@
     "build": "tsc",
     "dev": "ts-node-dev src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/app.ts"
+    "start": "ts-node src/app.ts",
+    "dev-inspect": "ts-node-dev --debug --inspect -- src/app.ts",
+    "dev-profile": "ts-node-dev --prof -- src/app.ts"
   },
   "author": "Berezhinskiy Oleg",
   "license": "ISC",
@@ -19,6 +21,8 @@
     "@types/validator": "^13.7.10",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
+    "artillery": "^2.0.0-28",
+    "dotenv": "^16.0.3",
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -28,14 +32,14 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "express-rate-limit": "^6.7.0",
     "celebrate": "^15.0.1",
     "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-winston": "^4.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.2",
     "validator": "^13.7.0",
-    "express-winston": "^4.2.0",
     "winston": "^3.8.2"
   },
   "repository": {

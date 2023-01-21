@@ -1,3 +1,4 @@
+import './env';
 import express from 'express';
 import mongoose from 'mongoose';
 import { ObjectId } from 'mongodb';
@@ -25,7 +26,7 @@ declare global {
   }
 }
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 const app = express();
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
@@ -35,7 +36,7 @@ const limiter = rateLimit({
 // подключаем rate-limiter
 app.use(limiter);
 
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect(MONGO_URL);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
